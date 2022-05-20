@@ -81,7 +81,7 @@ def _execute_block(block, env, variable_id_to_name):
 def _controls_if(inputs, fields, env, variable_id_to_name):
     # IF blocks are structured like this:
     # {'IF0': {}, 'DO0': {}, 'IF1': {}, 'DO1': {}, 'ELSE': {}}
-    for if_id, if_statement in inputs.items():
+    for if_id, if_statement in sorted(tuple(inputs.items())):
         if not if_id.startswith("IF"):
             continue
 
