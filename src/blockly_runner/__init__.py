@@ -9,6 +9,7 @@ from .constants import (
     logic_operators_to_fn,
     math_operators_to_fn,
 )
+from .exceptions import UndefinedVariable
 from .typing import assert_never
 
 
@@ -134,7 +135,11 @@ def _logic_negate(inputs, fields, env, variable_id_to_name):
 
 def _variables_get(inputs, fields, env, variable_id_to_name):
     variable_name = _get_variable_name_from_fields(fields, variable_id_to_name)
-    return env[variable_name]
+
+    try:
+        return env[variable_name]
+    except KeyError as e:
+        raise UndefinedVariable(f"Variable {variable_name} is not defined.") from e
 
 
 def _get_variable_name_from_fields(fields, variable_id_to_name):

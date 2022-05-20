@@ -1,0 +1,2 @@
+class UndefinedVariable(NameError):
+    pass

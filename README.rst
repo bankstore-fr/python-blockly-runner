@@ -76,6 +76,10 @@ We currently support:
 * Basic text: create a text variable.
 * Variable management: set a variable, access a variable, change a number variable by a delta.
 
+The following exceptions can be raised:
+
+* ``UndefinedVariable`` if you try to access a variable before it is defined.
+
 Contributions are welcomed to help us go further.
 
 
