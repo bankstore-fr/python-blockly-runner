@@ -38,22 +38,17 @@ Overview
     :alt: Commits since latest release
     :target: https://github.com/bankstore-fr/python-blockly-runner/compare/v0.0.0...main
 
-
-
 .. end-badges
 
 Run blockly workspaces directly, without the need to convert it to Python code.
 
 * Free software: MIT license
 
+
 Installation
 ============
 
-::
-
-    pip install blockly-runner
-
-You can also install the in-development version with::
+Currently, you must install the in-development version with (we are not on `pypi <https://pypi.org>`__ yet)::
 
     pip install https://github.com/bankstore-fr/python-blockly-runner/archive/main.zip
 
@@ -61,12 +56,27 @@ You can also install the in-development version with::
 Documentation
 =============
 
-
 To use the project:
 
 .. code-block:: python
 
-    # Soon.
+    from blockly_runner import execute_workspace_merge_all_roots, execute_workspace
+
+    # Result will contain all the variable updated to match their new value.
+    # If you have many block roots, you will get a global result.
+    result = execute_workspace_merge_all_roots(my_dict_workspace, {"var1": 1, "var2": "Hi"})
+
+    # If you have many block roots, you will get a list of result with as many element as you have roots.
+    results = execute_workspace(my_dict_workspace, {"var1": 1, "var2": "Hi"})
+
+We currently support:
+
+* Logic with if, if/else, if/else if, negation, comparison operators, logic operations.
+* Basic math: create a number variable, basic math operations (+, -, \*, /, ^).
+* Basic text: create a text variable.
+* Variable management: set a variable, access a variable, change a number variable by a delta.
+
+Contributions are welcomed to help us go further.
 
 
 Development
