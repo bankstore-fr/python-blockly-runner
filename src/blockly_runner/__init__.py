@@ -9,7 +9,7 @@ from .constants import (
     logic_operators_to_fn,
     math_operators_to_fn,
 )
-from .exceptions import UndefinedVariable
+from .exceptions import InvalidBlock, UndefinedVariable
 from .typing import assert_never
 
 
@@ -86,6 +86,9 @@ def _controls_if(inputs, fields, env, variable_id_to_name):
             continue
 
         do_id = if_id.replace("IF", "DO")
+        if do_id not in inputs:
+            raise InvalidBlock
+
         if _execute_block(
             if_statement["block"],
             env,
@@ -123,10 +126,13 @@ def _logic_compare(inputs, fields, env, variable_id_to_name):
 
 
 def _logic_operation(inputs, fields, env, variable_id_to_name):
-    return boolean_operators_to_fn[fields["OP"]](
-        _execute_block(inputs["A"]["block"], env, variable_id_to_name),
-        _execute_block(inputs["B"]["block"], env, variable_id_to_name),
-    )
+    try:
+        return boolean_operators_to_fn[fields["OP"]](
+            _execute_block(inputs["A"]["block"], env, variable_id_to_name),
+            _execute_block(inputs["B"]["block"], env, variable_id_to_name),
+        )
+    except KeyError as e:
+        raise InvalidBlock from e
 
 
 def _logic_negate(inputs, fields, env, variable_id_to_name):
@@ -148,12 +154,16 @@ def _get_variable_name_from_fields(fields, variable_id_to_name):
 
 def _variables_set(inputs, fields, env, variable_id_to_name):
     variable_name = _get_variable_name_from_fields(fields, variable_id_to_name)
-    env[variable_name] = _execute_block(
-        inputs["VALUE"]["block"],
-        env,
-        variable_id_to_name,
-    )
-    return None
+
+    try:
+        env[variable_name] = _execute_block(
+            inputs["VALUE"]["block"],
+            env,
+            variable_id_to_name,
+        )
+        return None
+    except KeyError as e:
+        raise InvalidBlock from e
 
 
 def _math_number(inputs, fields, env, variable_id_to_name):
@@ -168,10 +178,13 @@ def _math_change(inputs, fields, env, variable_id_to_name):
 
 
 def _math_arithmetic(inputs, fields, env, variable_id_to_name):
-    return math_operators_to_fn[fields["OP"]](
-        _execute_block(inputs["A"]["block"], env, variable_id_to_name),
-        _execute_block(inputs["B"]["block"], env, variable_id_to_name),
-    )
+    try:
+        return math_operators_to_fn[fields["OP"]](
+            _execute_block(inputs["A"]["block"], env, variable_id_to_name),
+            _execute_block(inputs["B"]["block"], env, variable_id_to_name),
+        )
+    except KeyError as e:
+        raise InvalidBlock from e
 
 
 def _text(inputs, fields, env, variable_id_to_name):

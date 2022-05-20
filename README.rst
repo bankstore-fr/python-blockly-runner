@@ -79,6 +79,8 @@ We currently support:
 The following exceptions can be raised:
 
 * ``UndefinedVariable`` if you try to access a variable before it is defined.
+* ``InvalidBlock`` if we encounter an invalid block. It shouldn't happen if you pay attention in the interface ;-)
+  And it's there it's easier to spot where this error comes from.
 
 Contributions are welcomed to help us go further.
 
