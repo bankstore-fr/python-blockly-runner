@@ -17,9 +17,9 @@ class BlockType(enum.Enum):
 
 logic_operators_to_fn = {
     "LT": operator.lt,
-    "LE": operator.le,
+    "LTE": operator.le,
     "GT": operator.gt,
-    "GE": operator.ge,
+    "GTE": operator.ge,
     "EQ": operator.eq,
 }
 
