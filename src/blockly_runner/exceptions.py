@@ -1,6 +1,10 @@
-class UndefinedVariable(NameError):
+class BlocklyException(Exception):
     pass
 
 
-class InvalidBlock(SyntaxError):
+class UndefinedVariable(BlocklyException):
+    pass
+
+
+class InvalidBlock(BlocklyException):
     pass
