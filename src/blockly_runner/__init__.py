@@ -33,7 +33,9 @@ def execute_workspace(workspace, input_env: Dict[Any, Any]) -> List[Dict[str, An
     You will get a list of results: each for each block root.
     """
     result_envs = []
-    variable_id_to_name: Dict[str, Any] = {var["id"]: var["name"] for var in workspace["variables"]}
+    variable_id_to_name: Dict[str, Any] = {
+        var["id"]: var["name"] for var in workspace.get("variables", [])
+    }
     for block in workspace["blocks"]["blocks"]:
         env = deepcopy(input_env)
         _execute_block(block, env, variable_id_to_name)
