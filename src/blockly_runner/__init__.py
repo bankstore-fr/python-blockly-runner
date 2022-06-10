@@ -1,4 +1,4 @@
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from copy import deepcopy
 from typing import Any, Dict, List

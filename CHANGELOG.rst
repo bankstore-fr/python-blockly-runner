@@ -1,8 +1,14 @@
-
 Changelog
 =========
 
-0.0.0 (TBD)
-------------------
+0.1.1
+-----
 
-* First release on PyPI.
+* Add support for ``!=`` operator.
+
+
+0.1.0
+-----
+
+* First release.
+* Support basic operations for numbers, strings and logic.
