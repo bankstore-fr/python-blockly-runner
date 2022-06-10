@@ -16,7 +16,7 @@ def read(*names, **kwargs):
 
 setup(
     name="blockly-runner",
-    version="0.0.0",
+    version="0.1.1",
     license="MIT",
     description="Run blockly workspaces directly, without the need to convert it to Python code.",
     long_description="{}\n{}".format(
