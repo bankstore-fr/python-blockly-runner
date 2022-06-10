@@ -21,6 +21,7 @@ logic_operators_to_fn = {
     "GT": operator.gt,
     "GTE": operator.ge,
     "EQ": operator.eq,
+    "NEQ": operator.ne,
 }
 
 math_operators_to_fn = {
