@@ -40,7 +40,7 @@ Overview
 
 .. end-badges
 
-Run blockly workspaces directly, without the need to convert it to Python code.
+Run `blockly workspaces <https://developers.google.com/blockly/>`__ directly, without the need to convert it to Python code.
 
 * Free software: MIT license
 
