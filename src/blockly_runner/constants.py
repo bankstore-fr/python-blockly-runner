@@ -7,6 +7,7 @@ class BlockType(enum.Enum):
     logic_compare = "logic_compare"
     logic_operation = "logic_operation"
     logic_negate = "logic_negate"
+    logic_null = "logic_null"
     variables_get = "variables_get"
     variables_set = "variables_set"
     math_number = "math_number"

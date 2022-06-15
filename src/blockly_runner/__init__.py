@@ -59,6 +59,8 @@ def _execute_block(block, env, variable_id_to_name):
             value = _logic_operation(inputs, fields, env, variable_id_to_name)
         elif block_type is BlockType.logic_negate:
             value = _logic_negate(inputs, fields, env, variable_id_to_name)
+        elif block_type is BlockType.logic_null:
+            value = None
         elif block_type is BlockType.variables_get:
             value = _variables_get(inputs, fields, env, variable_id_to_name)
         elif block_type is BlockType.variables_set:
