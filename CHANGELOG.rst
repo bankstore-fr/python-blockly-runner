@@ -1,6 +1,14 @@
 Changelog
 =========
 
+
+0.1.2
+-----
+
+* Add support for ``null``.
+* Add support for ``print``.
+
+
 0.1.1
 -----
 
