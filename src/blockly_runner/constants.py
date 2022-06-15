@@ -14,6 +14,7 @@ class BlockType(enum.Enum):
     math_change = "math_change"
     math_arithmetic = "math_arithmetic"
     text = "text"
+    text_print = "text_print"
 
 
 logic_operators_to_fn = {

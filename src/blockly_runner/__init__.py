@@ -71,6 +71,8 @@ def _execute_block(block, env, variable_id_to_name):
             value = _math_change(inputs, fields, env, variable_id_to_name)
         elif block_type is BlockType.text:
             value = _text(inputs, fields, env, variable_id_to_name)
+        elif block_type is BlockType.text_print:
+            value = _text_print(inputs, fields, env, variable_id_to_name)
         elif block_type is BlockType.math_arithmetic:
             value = _math_arithmetic(inputs, fields, env, variable_id_to_name)
         else:
@@ -193,3 +195,8 @@ def _math_arithmetic(inputs, fields, env, variable_id_to_name):
 
 def _text(inputs, fields, env, variable_id_to_name):
     return fields["TEXT"]
+
+
+def _text_print(inputs, fields, env, variable_id_to_name):
+    print(_execute_block(inputs["TEXT"]["block"], env, variable_id_to_name))
+    return None

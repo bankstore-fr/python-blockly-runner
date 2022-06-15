@@ -74,6 +74,15 @@ def test_execute_workspace():
     assert result == [{"my_var": -50}, {"my_var": -25}]
 
 
+def test_execute_workspace_print_output(capsys):
+    workspace, env = _extract_values_from_json("./tests/sample_workspaces/print_data.json")
+
+    execute_workspace(workspace, env)
+
+    captured = capsys.readouterr()
+    assert captured.out == "Hello!\n12\nWorld!\n"
+
+
 def test_execute_workspace_use_undefined_variable():
     workspace, env = _extract_values_from_json(
         "./tests/invalid_workspaces/use_undefined_variable.json"
