@@ -9,6 +9,8 @@ Overview
 
     * - tests
       - | |github-actions|
+    * - pypi
+      - | |version| |wheel| |supported-versions| |supported-implementations|
 
 .. |github-actions| image:: https://github.com/bankstore-fr/python-blockly-runner/actions/workflows/github-actions.yml/badge.svg
     :alt: GitHub Actions Build Status
@@ -34,10 +36,6 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/blockly-runner
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/bankstore-fr/python-blockly-runner/v0.0.0.svg
-    :alt: Commits since latest release
-    :target: https://github.com/bankstore-fr/python-blockly-runner/compare/v0.0.0...main
-
 .. end-badges
 
 Run `blockly workspaces <https://developers.google.com/blockly/>`__ directly, without the need to convert it to Python code.
@@ -50,7 +48,7 @@ Installation
 
 Currently, you must install the in-development version with (we are not on `pypi <https://pypi.org>`__ yet)::
 
-    pip install https://github.com/bankstore-fr/python-blockly-runner/archive/main.zip
+    pip install blockly-runner
 
 
 Documentation

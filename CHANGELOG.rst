@@ -1,10 +1,16 @@
 Changelog
 =========
 
-0.1.2
+0.1.3
 -----
 
-* First relaese on Pypi
+* Correct documentation and install procedure.
+
+
+0.1.3
+-----
+
+* First release on Pypi
 
 
 0.1.2
