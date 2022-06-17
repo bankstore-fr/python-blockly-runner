@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.1.2
+-----
+
+* First relaese on Pypi
+
 
 0.1.2
 -----

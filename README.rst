@@ -108,3 +108,14 @@ Note, to combine the coverage data from all the tox environments run:
       - ::
 
             PYTEST_ADDOPTS=--cov-append tox
+
+
+Create a new release
+====================
+
+You need `flit <https://flit.pypa.io/en/latest/>`__ to publish the release.
+
+#. Bump version in ``src/blockly_runner/__init__.py``.
+#. Update the ``CHANGELOG.rst``.
+#. Commit and push.
+#. Publish the package with ``flit publish``.

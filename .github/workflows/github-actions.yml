@@ -52,7 +52,7 @@ jobs:
         architecture: ${{ matrix.python_arch }}
     - name: install dependencies
       run: |
-        python -mpip install --progress-bar=off -r ci/requirements.txt
+        python -mpip install --progress-bar=off virtualenv>=16.6.0 pip>=19.1.1 setuptools>=18.0.1 six>=1.14.0 tox>=3.25.0
         virtualenv --version
         pip --version
         tox --version
